@@ -491,11 +491,6 @@ a.paginator__text {
     background-color: #eee;
 }
 
-.sticky-sidebar-track {
-    height: 100%;
-    background-color: #444;
-}
-
 @media only screen and (max-width: 720px) {
     .layout-inner__sidebar {
         display: none;
