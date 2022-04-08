@@ -3,13 +3,8 @@
     height: auto !important;
 }
 
-.content_main p {
-    margin: 1em 0;
-}
-
 .content_main a {
     text-decoration: none;
-    color: #48f;
 }
 
 .content_main a:hover {

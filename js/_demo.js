@@ -3,6 +3,10 @@ var StickyHeader = function (selector) {
     var $padding = $sticky.parentNode;
 
     if ($sticky && $padding) {
+        init();
+    }
+
+    function init() {
         setEvents();
         refresh();
     }
@@ -27,11 +31,17 @@ var StickyHeader = function (selector) {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+    // sticky
     (function () {
         var stickyHeader = new StickyHeader('.js-sticky-header');
 
         var stickyEl = new Sticksy('.js-sticky-sidebar', {
             topSpacing: document.querySelector('.js-sticky-header').clientHeight,
         });
+    })();
+
+    // lazy load
+    (function () {
+        var lazyLoadInstance = new LazyLoad();
     })();
 });

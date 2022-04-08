@@ -56,8 +56,4 @@ body {
     .wrapper {
         width: 320px;
     }
-
-    .header__menu {
-        display: none;
-    }
 }

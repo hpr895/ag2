@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no">
     <meta name="format-detection" content="telephone=no">
-    <link rel="shortcut icon" href="favicons/favicon.png">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/content.css">
     <link rel="stylesheet" href="css/main.css">
@@ -15,7 +15,7 @@
 <body>
     <div class="page">
         <div class="page__header">
-            <div class="header">
+            <header class="header">
                 <div class="header__top-outer">
                     <div class="header__wrapper wrapper">
                         <div class="header__top">
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </header>
         </div>
         <div class="page__main">
             <div class="main-section">
@@ -90,6 +90,7 @@
                         <div class="layout-inner__main">
                             <div class="layout-inner__content">
                                 <div class="content content_main">
+                                    <h2>content</h2>
                                     <ul>
                                         <li>1</li>
                                         <li>2</li>
@@ -105,16 +106,95 @@
                                     <p>Lorem ipsum <a href="#">dolor sit amet</a> consectetur adipisicing, elit. Minima, commodi. Quam officiis officia culpa adipisci, iusto quod cum aperiam quaerat, facere velit dolore mollitia. Distinctio est, ab dicta accusan lor sit amet</a> consectetur adipisicing, elit. Minima, commodi. Quam officiis officia culpa adipisci, iusto quod cum aperiam quaerat, facere velit dolore mollitia. Distinctio est, ab dicta accusantium facilistium facilis?</p>
                                     <p><img src="upload/_landscape.jpg" alt="img"></p>
                                     <p>Lorem ipsum <a href="#">dolor sit amet</a> consectetur adipisicing, elit. Minima, commodi. Quam officiis officia culpa adipisci, iusto quod cum aperiam quaerat, facere velit dolore mollitia. Distinctio est, ab dicta accusantium facilis lor sit amet</a> consectetur adipisicing, elit. Minima, commodi. Quam officiis officia culpa adipisci, iusto quod cum aperiam quaerat, facere velit dolore mollitia. Distinctio est, ab dicta accusantium facilis?</p>
-                                    <p><img src="upload/_landscape.jpg" alt="img"></p>
                                     <p>Lorem ipsum <a href="#">dolor sit amet</a> consectetur adipisicing, elit. Minima, commodi. Quam officiis officia culpa lor sit amet</a> consectetur adipisicing, elit. Minima, commodi. Quam officiis officia culpa adipisci, iusto quod cum aperiam quaerat, facere velit dolore mollitia. Distinctio est, ab dicta accusantium facilis adipisci, iusto quod cum aperiam quaerat, facere velit dolore mollitia. Distinctio est, ab dicta accusantium facilis?</p>
-                                    <p><img src="upload/_landscape.jpg" alt="img"></p>
                                 </div>
                             </div>
                             <div class="layout-inner__sidebar">
                                 <div class="sidebar js-sticky-sidebar">
-                                    сайдбар<br>сайдбар<br>сайдбар<br>сайдбар<br>сайдбар
+                                    сайдбар<br><br><br><br>
                                 </div>
                             </div>
+                        </div>
+                        <div class="layout-itter__content">
+
+                            <div class="demo-block">
+                                <h2>forms</h2>
+                                <label>label</label>
+                                <input type="text" class="field field_main" placeholder="type some text...">
+                                <br>
+                                <textarea class="field field_main" placeholder="type some text..."></textarea>
+                                <br>
+                                <input class="field field_main" type="file">
+                                <br>
+                                <select class="field field_main">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                                <br>
+                                <select class="field field_main" multiple>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                </select>
+                                <br>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    <span class="checkbox__text">First</span>
+                                    <span class="checkbox__box"></span>
+                                </label>
+                                <br>
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    <span class="checkbox__box"></span>
+                                    <span class="checkbox__text">Second</span>
+                                </label>
+                                <br>
+                                <br>
+                                <label class="radio">
+                                    <input type="radio" name="radio_1">
+                                    <span class="radio__text">First</span>
+                                    <span class="radio__box"></span>
+                                </label>
+                                <br>
+                                <label class="radio">
+                                    <input type="radio" name="radio_1">
+                                    <span class="radio__box"></span>
+                                    <span class="radio__text">Second</span>
+                                </label>
+                                <br>
+                                <br>
+                                <button class="button button_main">button</button>
+                                <br>
+
+                                <h2>lazy load webp wedia</h2>
+                                <p>
+                                    <picture>
+                                        <source media="(max-width: 720px)" type="image/webp" data-srcset="upload/_landscape-xs.jpg.webp">
+                                        <source media="(max-width: 720px)" data-srcset="upload/_landscape-xs.jpg">
+                                        <source type="image/webp" data-srcset="upload/_landscape.jpg.webp">
+                                        <img class="lazy" alt="img" data-src="upload/_landscape.jpg">
+                                    </picture>
+                                </p>
+
+                                <h2>helpers</h2>
+                                <div class="responsive-table-wrapper">
+                                    <table>
+                                        <tr>
+                                            <td>Loremipsumdolorsitametconsecteturadipisicingelit.Evenietabquasiipsapossimusexvoluptasodio!</td>
+                                            <td>Loremipsumdolorsitametconsecteturadipisicingelit.Evenietabquasiipsapossimusexvoluptasodio!</td>
+                                            <td>Loremipsumdolorsitametconsecteturadipisicingelit.Evenietabquasiipsapossimusexvoluptasodio!</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <br>
+                                <div style="max-width: 480px; margin: auto;">
+                                    <div class="responsive-video responsive-video_16x9" style="background-color: #eee;">
+                                        <!-- <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe> -->
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="layout-inner__shares">
                             yandex-share
@@ -156,13 +236,12 @@
             </footer>
         </div>
     </div>
-    <div class="mobile-panel">
-        
-    </div>
+    <div class="mobile-panel"></div>
 
-    <script src="vendor/sticksy/sticksy.js"></script>
-
+    <script src="vendor/sticksy/sticksy.min.js"></script>
+    <script src="vendor/lazyload/lazyload.min.js"></script>
     <script src="js/_demo.js"></script>
+
     <script src="js/main.js"></script>
 </body>
 </html>
