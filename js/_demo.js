@@ -121,13 +121,16 @@ ag2.SidePanel = function(config) {
     config = config || {};
     var options = {
         panel: config.panel || '.js-side-panel',
+        overlay: config.overlay || '.js-side-panel-overlay',
         open: config.open || '.js-open-side-panel',
         close: config.close || '.js-close-side-panel',
         toggle: config.toggle || '.js-toggle-side-panel',
+        closeOutside: true,
     };
 
-    var $openings = document.querySelectorAll(options.open);
     var $panel = document.querySelector(options.panel);
+    var $overlay = document.querySelector(options.overlay);
+    var $openings = document.querySelectorAll(options.open);
     var $closings = document.querySelectorAll(options.close);
     var $toggles = document.querySelectorAll(options.toggle);
 
@@ -158,11 +161,24 @@ ag2.SidePanel = function(config) {
         }
 
         document.addEventListener('keydown', onDocumentKeyDown);
+        document.addEventListener('click', onDocumentClick);
     }
 
     function onDocumentKeyDown(e) {
         if (isOpened && e.key === 'Escape') {
             closePanel();
+        }
+    }
+
+    function onDocumentClick(e) {
+        if (isOpened && options.closeOutside) {
+            var onPanel = e.target.matches(options.panel) || e.target.closest(options.panel);
+            var onOpener = e.target.matches(options.open) || e.target.closest(options.open);
+            var onToggler = e.target.matches(options.toggle) || e.target.closest(options.toggle);
+
+            if (!onPanel && !onOpener && !onToggler) {
+                closePanel();
+            }
         }
     }
 
@@ -187,13 +203,19 @@ ag2.SidePanel = function(config) {
     }
 
     function openPanel() {
-        $panel.classList.add('is-opened');
         isOpened = true;
+        $panel.classList.add('is-opened');
+        if ($overlay) {
+            $overlay.classList.add('is-active');
+        }
     }
 
     function closePanel() {
-        $panel.classList.remove('is-opened');
         isOpened = false;
+        $panel.classList.remove('is-opened');
+        if ($overlay) {
+            $overlay.classList.remove('is-active');
+        }
     }
 
     return {

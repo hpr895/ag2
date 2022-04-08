@@ -356,6 +356,24 @@ a.paginator__text {
     transform: translateX(-320px);
 }
 
+.side-panel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1100;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 150ms ease-in-out 0ms;
+    pointer-events: none;
+}
+
+.side-panel-overlay.is-active {
+    pointer-events: all;
+    opacity: 1;
+}
+
 @media only screen and (max-width: 720px) {
     .layout-inner__sidebar {
         display: none;
@@ -455,22 +473,4 @@ a.paginator__text {
     font-size: 1em;
 }
 
-.mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 100;
-    background-color: rgba(0,0,0,0.3);
-    display: none;
-    opacity: 0;
-    transition: opacity 200ms ease-in-out 0ms;
-}
-
-.mobile-overlay.is-visible {
-    opacity: 1;
-}
-
 */
-
