@@ -16,26 +16,57 @@
     <div class="page">
         <div class="page__header">
             <div class="header">
-                <div class="header__wrapper wrapper">
-                    <div class="header__top">
-                        <div class="header__logo">
-                            <a href="index.html">
-                                <img src="img/logo.png" alt="logo">
-                            </a>
-                        </div>
-                        <div class="header__hamburger">
-                            <div class="hamburger">
-                                <div class="hamburger__line"></div>
-                                <div class="hamburger__line"></div>
-                                <div class="hamburger__line"></div>
+                <div class="header__top-outer">
+                    <div class="header__wrapper wrapper">
+                        <div class="header__top">
+                            <div class="header__logo">
+                                <a href="index.html">
+                                    <img src="img/logo.png" alt="logo">
+                                </a>
+                            </div>
+                            <div class="header__hamburger">
+                                <div class="hamburger">
+                                    <div class="hamburger__line"></div>
+                                    <div class="hamburger__line"></div>
+                                    <div class="hamburger__line"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="header__menu">
-                        <div class="main-menu">
-                            qwe
-                            <!-- <div class="nav-main"></div> -->
-                        </div>
+                </div>
+                <div class="js-sticky-header-padding"></div>
+                <div class="header__menu-outer sticky-header js-sticky-header">
+                    <div class="header__wrapper wrapper">
+                        <ul class="menu-main">
+                            <li class="menu-main__item">
+                                <a href="#" class="menu-main__link">Новости</a>
+                            </li>
+                            <li class="menu-main__item">
+                                <a href="#" class="menu-main__link is-active">О нас</a>
+
+                                <div class="menu-main__submenu">
+                                    <ul class="menu-main-2">
+                                        <li class="menu-main-2__item">
+                                            <a href="#" class="menu-main-2__link">Контакты</a>
+                                        </li>
+                                        <li class="menu-main-2__item">
+                                            <a href="#" class="menu-main-2__link is-active">Отзывы</a>
+
+                                            <div class="menu-main-2__submenu">
+                                                <ul class="menu-main-3">
+                                                    <li class="menu-main-3__item">
+                                                        <a href="#" class="menu-main-3__link">Хорошие</a>
+                                                    </li>
+                                                    <li class="menu-main-3__item">
+                                                        <a href="#" class="menu-main-3__link is-active">Плохие</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -79,8 +110,11 @@
                                 </div>
                             </div>
                             <div class="layout-inner__sidebar">
-                                <div class="sidebar">
-                                    сайдбар<br>сайдбар<br>сайдбар<br>сайдбар<br>сайдбар
+                                <div class="sticky-sidebar-container">
+                                    <div class="js-sticky-sidebar-padding"></div>
+                                    <div class="sidebar sticky-sidebar js-sticky-sidebar">
+                                        сайдбар<br>сайдбар<br>сайдбар<br>сайдбар<br>сайдбар
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -127,6 +161,8 @@
     <div class="mobile-panel">
         
     </div>
+
+    <script src="js/_demo.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
