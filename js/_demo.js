@@ -40,9 +40,6 @@ ag2.StickyHeader = function (selector) {
 };
 
 ag2.Tabs = function(buttonSelector, contentSelector, config) {
-    var $buttons;
-    var $contents;
-
     config = config || {};
     var options = {
         toggle: config.toggle || false,
@@ -51,6 +48,9 @@ ag2.Tabs = function(buttonSelector, contentSelector, config) {
         contentAttribute: config.contentAttribute || 'data-tab-content',
         afterShow: config.afterShow || false,
     };
+
+    var $buttons;
+    var $contents;
 
     init();
 
@@ -117,6 +117,92 @@ ag2.Tabs = function(buttonSelector, contentSelector, config) {
     };
 }
 
+ag2.SidePanel = function(config) {
+    config = config || {};
+    var options = {
+        panel: config.panel || '.js-side-panel',
+        open: config.open || '.js-open-side-panel',
+        close: config.close || '.js-close-side-panel',
+        toggle: config.toggle || '.js-toggle-side-panel',
+    };
+
+    var $openings = document.querySelectorAll(options.open);
+    var $panel = document.querySelector(options.panel);
+    var $closings = document.querySelectorAll(options.close);
+    var $toggles = document.querySelectorAll(options.toggle);
+
+    var isOpened = false;
+
+    if ($panel) {
+        init();
+    }
+
+    function init() {
+        setEvents();
+    }
+
+    function setEvents() {
+        for (var i = 0; i < $openings.length; i++) {
+            $openings[i].removeEventListener('click', onOpeningClick);
+            $openings[i].addEventListener('click', onOpeningClick);
+        }
+
+        for (var i = 0; i < $closings.length; i++) {
+            $closings[i].removeEventListener('click', onClosingClick);
+            $closings[i].addEventListener('click', onClosingClick);
+        }
+
+        for (var i = 0; i < $toggles.length; i++) {
+            $toggles[i].removeEventListener('click', onToggingClick);
+            $toggles[i].addEventListener('click', onToggingClick);
+        }
+
+        document.addEventListener('keydown', onDocumentKeyDown);
+    }
+
+    function onDocumentKeyDown(e) {
+        if (isOpened && e.key === 'Escape') {
+            closePanel();
+        }
+    }
+
+    function onOpeningClick() {
+        openPanel();
+    }
+
+    function onClosingClick() {
+        closePanel();
+    }
+
+    function onToggingClick() {
+        togglePanel();
+    }
+
+    function togglePanel() {
+        if (isOpened) {
+            closePanel();
+        } else {
+            openPanel();
+        }
+    }
+
+    function openPanel() {
+        $panel.classList.add('is-opened');
+        isOpened = true;
+    }
+
+    function closePanel() {
+        $panel.classList.remove('is-opened');
+        isOpened = false;
+    }
+
+    return {
+        togglePanel: togglePanel,
+        openPanel: openPanel,
+        closePanel: closePanel,
+    };
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     // sticky
     (function () {
@@ -135,5 +221,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // tabs
     (function () {
         var tabs = new ag2.Tabs('.js-tab-button', '.js-tab-content');
+    })();
+
+    // mobile panel
+    (function () {
+        var mobilePanel = new ag2.SidePanel();
     })();
 });
