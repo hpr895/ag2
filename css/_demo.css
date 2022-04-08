@@ -88,12 +88,12 @@ textarea.field_main {
 }
 
 .sticky-header.is-stuck {
-    /*position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     margin: auto;
-    z-index: 5;*/
+    z-index: 5;
 }
 
 .hamburger {
@@ -475,7 +475,6 @@ a.paginator__text {
 
 .page-title {
     margin: 0;
-    margin-bottom: 8px;
     font-size: 24px;
 }
 
@@ -489,18 +488,12 @@ a.paginator__text {
 }
 
 .sidebar {
-    background-color: #ccc;
+    background-color: #eee;
 }
 
-.sticky-sidebar-container {
-    position: relative;
-}
-
-.sticky-sidebar.is-stuck {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
+.sticky-sidebar-track {
+    height: 100%;
+    background-color: #444;
 }
 
 @media only screen and (max-width: 720px) {

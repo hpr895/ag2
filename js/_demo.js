@@ -9,6 +9,8 @@ var Sticky = function (selector, padding, config) {
     var options = {
         dynamic: config.dynamic || true,
         offset: config.offset || 0,
+        translate: config.translate || false,
+        track: config.track ? document.querySelector('config.track') : false,
     };
 
     if ($sticky && $padding) {
@@ -27,13 +29,21 @@ var Sticky = function (selector, padding, config) {
             setValues();
         }
 
+            // currentTrackOffset = config.track.clientHeight
+        var negativeOffset
+
         if (paddingOffset < options.offset) {
             $sticky.classList.add('is-stuck');
-            $padding.style.paddingBottom = elHeight + 'px';
-            $sticky.style.transform = 'translateY(' + (window.scrollY) + 'px)';
+
+            if (options.translate) {
+                $sticky.style.transform = 'translateY(' + (window.scrollY - $sticky.clientHeight) + 'px)';
+            } else {
+                $padding.style.paddingBottom = elHeight + 'px';
+            }
         } else {
             $sticky.classList.remove('is-stuck');
             $padding.style.paddingBottom = 0;
+            $sticky.style.transform = 'translateY(0)';
         }
     }
 
@@ -45,6 +55,10 @@ var Sticky = function (selector, padding, config) {
     function getTopOffset($el) {
         return $el.getBoundingClientRect().top;
     }
+
+    // function calcoffsetFromTrack() {
+
+    // }
 };
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,6 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var stickySidebar = new Sticky('.js-sticky-sidebar', '.js-sticky-sidebar-padding', {
             offset: document.querySelector('.js-sticky-header').clientHeight,
+            translate: true,
+            track: 'js-sticky-sidebar-track',
         });
     })();
 });
