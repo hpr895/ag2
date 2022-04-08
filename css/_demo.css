@@ -492,6 +492,24 @@ a.paginator__text {
     padding: 20px;
 }
 
+.tab-button {
+    user-select: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tab-button.is-active {
+    background-color: #ccc;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.is-active {
+    display: block;
+}
+
 @media only screen and (max-width: 720px) {
     .layout-inner__sidebar {
         display: none;
