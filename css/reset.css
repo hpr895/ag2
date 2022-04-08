@@ -18,6 +18,10 @@ img {
     user-select: none;
 }
 
+table {
+    width: 100%;
+}
+
 .responsive-video {
     position: relative;
     display: block;
