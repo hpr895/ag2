@@ -1,0 +1,63 @@
+@font-face {
+    font-display: swap;
+    font-family: 'roboto';
+    src: url('../fonts/roboto/roboto-regular.ttf');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'roboto';
+    src: url('../fonts/roboto/roboto-bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'roboto';
+    src: url('../fonts/roboto/roboto-italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'roboto';
+    src: url('../fonts/roboto/roboto-light.ttf');
+    font-weight: 200;
+}
+
+body {
+    font-family: 'roboto', sans-serif;
+}
+
+.page {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.page__main {
+    flex-grow: 1;
+}
+
+.wrapper {
+    margin: auto;
+    padding: 0 10px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .wrapper {
+        width: 720px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .wrapper {
+        width: 320px;
+    }
+
+    .header__menu {
+        display: none;
+    }
+}

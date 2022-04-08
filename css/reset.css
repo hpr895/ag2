@@ -1,0 +1,141 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    outline: none;
+    vertical-align: top;
+}
+
+img {
+    display: inline-block;
+    max-width: 100%;
+    user-select: none;
+}
+
+.responsive-video {
+    position: relative;
+    display: block;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.responsive-video iframe,
+.responsive-video embed,
+.responsive-video object,
+.responsive-video video {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.responsive-video_16x9 {
+    padding-bottom: 56.25%;
+}
+
+.responsive-video_4x3 {
+    padding-bottom: 75%;
+}
+
+.responsive-table-wrapper {
+    overflow-x: scroll;
+}
+
+.title {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.table {
+    margin: 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 0;
+    vertical-align: top;
+}
+
+.table th {
+    text-align: left;
+    font-weight: inherit;
+}
+
+.hr {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.button {
+    padding: 0;
+    display: inline-block;
+    box-shadow: none;
+    border: none;
+    background: none;
+    font-size: inherit;
+    cursor: pointer;
+    user-select: none;
+    background-color: #ccc;
+}
+
+.field {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    background-color: #eee;
+}
+
+.field::-webkit-input-placeholder {
+    opacity: 0.5;
+    color: inherit;
+}
+
+.field::-moz-placeholder {
+    opacity: 0.5;
+    color: inherit;
+}
+
+.field:-ms-input-placeholder {
+    opacity: 0.5;
+    color: inherit;
+}
+
+textarea.field {
+    resize: vertical;
+}
+
+input[type="file"].field {
+    cursor: pointer;
+}
+
+select.field {
+    cursor: pointer;
+}

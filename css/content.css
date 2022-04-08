@@ -1,0 +1,8 @@
+.content img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.content_main p {
+    margin: 1em 0;
+}
