@@ -324,4 +324,13 @@ document.addEventListener('DOMContentLoaded', function () {
             mobileMenuArrows.closeAll();
         }
     })();
+
+    // input mask
+    (function () {
+        var maskFormat = '+{996} (000) 00-00-00';
+        var $phoneInputs = document.querySelectorAll('.js-phone-mask');
+        for (var i = 0; i < $phoneInputs.length; i++) {
+            IMask($phoneInputs[i], { mask: maskFormat, lazy: false});
+        }
+    })();
 });
