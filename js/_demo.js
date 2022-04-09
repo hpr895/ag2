@@ -338,6 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
     (function () {
         var calendar = new AirDatepicker('.js-datepicker', {
             // locale: AirDatepickerLocale_en,
+            dateFormat: 'yyyy-MM-dd',
         });
     })();
 
@@ -351,6 +352,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: 'clone',
                     dragToClose: false,
                     closeButton: false,
+                    click: false,
                 }]);
             });
         }

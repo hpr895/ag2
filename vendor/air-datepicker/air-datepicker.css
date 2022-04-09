@@ -470,6 +470,7 @@
     --adp-mobile-day-cell-height: 38px;
     --adp-mobile-month-cell-height: 48px;
     --adp-mobile-year-cell-height: 64px;
+    user-select: none;
 }
 .air-datepicker-overlay {
     --adp-overlay-background-color: rgba(0, 0, 0, 0.3);
@@ -660,7 +661,6 @@
     padding: var(--adp-padding);
     grid-area: body;
     min-height: 218px;
-    user-select: none;
 }
 .-only-timepicker- .air-datepicker--content {
     display: none;
