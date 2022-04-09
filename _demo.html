@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/reset.css">
 
     <link rel="stylesheet" href="vendor/air-datepicker/air-datepicker.css">
+    <link rel="stylesheet" href="vendor/fancybox/fancybox.css">
 
     <link rel="stylesheet" href="css/content.css">
     <link rel="stylesheet" href="css/main.css">
@@ -224,13 +225,52 @@
                                     <span class="tab-button js-tab-button" data-tab-button="2">open 2</span>
                                     <span class="tab-button js-tab-button" data-tab-button="3">open 3</span>
                                 </div>
-
                                 <div>
                                     <p class="tab-content js-tab-content is-active" data-tab-content="1">hello 1</p>
                                     <p class="tab-content js-tab-content" data-tab-content="2">hello 2</p>
                                     <p class="tab-content js-tab-content" data-tab-content="3">hello 3</p>
                                 </div>
 
+                                <h2>modal</h2>
+                                <div class="button button_main js-open-modal-simple">open simple</div>
+
+                                <div class="modal-wrapper">
+                                    <div class="modal modal_main js-modal-simple">
+                                        <div class="modal__close" data-fancybox-close>x</div>
+                                        <div class="modal__content">
+                                            Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Consequatur voluptatem iste delectus libero reprehenderit voluptatum eveniet, veniam ipsa at rem veritatis quos ad! Placeat omnis, aliquam voluptate nihil ut debitis?
+                                            Sit nesciunt facere est optio. Quidem, facilis nisi adipisci qui quisquam reiciendis corporis voluptates, voluptatibus quo voluptatum magni quis quasi in beatae libero error? Ducimus reiciendis esse, id earum.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h2>gallery</h2>
+                                <img src="upload/_landscape.jpg" alt="img" data-fancybox="gallery" style="width: 100px;">
+                                <img src="upload/_landscape.jpg" alt="img" data-fancybox="gallery" style="width: 100px;">
+                                <img src="upload/_landscape.jpg" alt="img" data-fancybox="gallery" style="width: 100px;">
+
+                                <h2>carousel</h2>
+                                <div class="carousel js-carousel">
+                                    <div class="carousel__slide">
+                                        <img data-lazy-src="upload/_landscape.jpg" alt="img">
+                                    </div>
+                                    <div class="carousel__slide">
+                                        <img data-lazy-src="upload/_landscape.jpg" alt="img">
+                                    </div>
+                                    <div class="carousel__slide">
+                                        <img data-lazy-src="upload/_landscape.jpg" alt="img">
+                                    </div>
+                                </div>
+
+                                <br><br>
+
+                                <h2>zoom</h2>
+                                <div class="panzoom js-zoom" style="width: 320px; height: 200px;">
+                                    <img class="panzoom__content" src="upload/_landscape.jpg" alt="img">
+                                </div>
+
+                                <br>
+                                <br>
                             </div>
                         </div>
 
@@ -351,6 +391,7 @@
     <script src="vendor/lazyload/lazyload.min.js"></script>
     <script src="vendor/imask/imask.js"></script>
     <script src="vendor/air-datepicker/air-datepicker.js"></script>
+    <script src="vendor/fancybox/fancybox.js"></script>
 
     <script src="js/_demo.js"></script>
 

@@ -340,4 +340,31 @@ document.addEventListener('DOMContentLoaded', function () {
             // locale: AirDatepickerLocale_en,
         });
     })();
+
+    // modal
+    (function () {
+        var $modalButton = document.querySelectorAll('.js-open-modal-simple');
+        for (var i = 0; i < $modalButton.length; i++) {
+            $modalButton[i].addEventListener('click', function() {
+                new Fancybox([{
+                    src: document.querySelector('.js-modal-simple'),
+                    type: 'clone',
+                    dragToClose: false,
+                    closeButton: false,
+                }]);
+            });
+        }
+    })();
+
+    // carousel
+    (function () {
+        var myCarousel = new Carousel(document.querySelector('.js-carousel'), {
+          dragFree: true,
+        });
+    })();
+
+    // zoom
+    (function () {
+        var zoom = new Panzoom(document.querySelector('.js-zoom'));
+    })();
 });
