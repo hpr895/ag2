@@ -246,5 +246,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // mobile panel
     (function () {
         var mobilePanel = new SidePanel();
+        mobilePanel.openPanel();
     })();
 });
