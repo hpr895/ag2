@@ -662,6 +662,9 @@
     grid-area: body;
     min-height: 218px;
 }
+.air-datepicker.-is-mobile- .air-datepicker--content {
+    min-height: 256px;
+}
 .-only-timepicker- .air-datepicker--content {
     display: none;
 }

@@ -3,18 +3,18 @@
 <head>
     <title>Главная</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="favicons/favicon.ico">
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reset.css?v=1014">
 
-    <link rel="stylesheet" href="vendor/air-datepicker/air-datepicker.css">
+    <link rel="stylesheet" href="vendor/air-datepicker/air-datepicker.css?v=1014">
     <link rel="stylesheet" href="vendor/fancybox/fancybox.css">
 
     <link rel="stylesheet" href="css/content.css">
     <link rel="stylesheet" href="css/main.css">
 
-    <link rel="stylesheet" href="css/_demo.css">
+    <link rel="stylesheet" href="css/_demo.css?v=1014">
 </head>
 <body>
     <div class="page">
@@ -35,6 +35,13 @@
                     <div class="header__menu-outer sticky-header js-sticky-header">
                         <div class="header__wrapper wrapper">
                             <div class="header__bottom">
+                                <div class="header__hamburger">
+                                    <div class="hamburger js-open-side-panel">
+                                        <div class="hamburger__line"></div>
+                                        <div class="hamburger__line"></div>
+                                        <div class="hamburger__line"></div>
+                                    </div>
+                                </div>
                                 <div class="header__menu">
                                     <ul class="menu-main">
                                         <li class="menu-main__item">
@@ -66,13 +73,6 @@
                                             </div>
                                         </li>
                                     </ul>
-                                </div>
-                                <div class="header__hamburger">
-                                    <div class="hamburger js-open-side-panel">
-                                        <div class="hamburger__line"></div>
-                                        <div class="hamburger__line"></div>
-                                        <div class="hamburger__line"></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                                 <label>label</label>
                                 <input type="text" class="field field_main" placeholder="type some text...">
                                 <br>
-                                <input type="text" class="field field_main phone-mask js-phone-mask">
+                                <input type="tel" class="field field_main phone-mask js-phone-mask">
                                 <br>
                                 <input type="text" class="field field_main js-datepicker" placeholder="calendar">
                                 <br>
@@ -313,7 +313,7 @@
     </div>
 
     <div class="side-panel-overlay js-side-panel-overlay"></div>
-    <div class="side-panel side-panel_right js-side-panel">
+    <div class="side-panel side-panel_left js-side-panel">
         <div class="mobile-panel">
             <div class="mobile-panel__close">
                 <div class="js-close-side-panel">
@@ -393,7 +393,7 @@
     <script src="vendor/air-datepicker/air-datepicker.js"></script>
     <script src="vendor/fancybox/fancybox.js"></script>
 
-    <script src="js/_demo.js"></script>
+    <script src="js/_demo.js?v=1014"></script>
 
     <script src="js/main.js"></script>
 </body>

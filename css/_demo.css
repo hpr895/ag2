@@ -193,10 +193,6 @@ textarea.field_main {
     display: flex;
 }
 
-.header__hamburger {
-    margin-left: auto;
-}
-
 .header__logo {
     width: 40px;
 }
@@ -451,7 +447,7 @@ a.paginator__text {
     top: 0;
     z-index: 1200;
     width: 100%;
-    max-width: 320px;
+    max-width: 240px;
     height: 100%;
     transition: transform 150ms ease-in-out 0ms;
     overflow-y: auto;
@@ -517,6 +513,10 @@ a.paginator__text {
     border-bottom: 1px solid #ddd;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.mobile-menu a:focus {
+    background-color: #f4f4f4;
 }
 
 .mobile-menu li > ul {
@@ -612,6 +612,7 @@ a.paginator__text {
 
 .carousel {
     width: 400px;
+    max-width: 100%;
 }
 
 .carousel__slide img {

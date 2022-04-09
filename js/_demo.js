@@ -339,6 +339,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var calendar = new AirDatepicker('.js-datepicker', {
             // locale: AirDatepickerLocale_en,
             dateFormat: 'yyyy-MM-dd',
+            autoClose: true,
+            isMobile: document.documentElement.clientWidth <= 720,
         });
     })();
 
@@ -350,9 +352,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 new Fancybox([{
                     src: document.querySelector('.js-modal-simple'),
                     type: 'clone',
-                    dragToClose: false,
                     closeButton: false,
                     click: false,
+                    dragToClose: document.documentElement.clientWidth <= 720,
                 }]);
             });
         }
