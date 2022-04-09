@@ -23,23 +23,50 @@ textarea.field_main {
 }
 
 .checkbox input {
-    display: none;
+    position: absolute;
+    z-index: -10;
+    opacity: 0;
 }
 
-.checkbox__box {
-    width: 12px;
-    height: 12px;
+.checkbox__dot {
+    position: relative;
+    width: 16px;
+    height: 16px;
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #000;
 }
 
-.checkbox input:checked ~ .checkbox__box {
+.checkbox input:checked ~ .checkbox__dot {
     background-color: #000;
+}
+
+.checkbox input:checked ~ .checkbox__dot::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -4px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 0;
+    height: 0;
+    width: 10px;
+    height: 6px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #fff #fff transparent transparent;
+    transform: rotate(135deg);
 }
 
 .checkbox__text {
     vertical-align: middle;
+}
+
+.checkbox__text ~ .checkbox__dot,
+.checkbox__dot ~ .checkbox__text {
+    margin-left: 8px;
 }
 
 .radio {
@@ -48,24 +75,103 @@ textarea.field_main {
 }
 
 .radio input {
-    display: none;
+    position: absolute;
+    z-index: -10;
+    opacity: 0;
 }
 
-.radio__box {
-    width: 12px;
-    height: 12px;
+.radio__dot {
+    position: relative;
+    width: 16px;
+    height: 16px;
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #000;
     border-radius: 50%;
 }
 
-.radio input:checked ~ .radio__box {
+.radio input:checked ~ .radio__dot {
     background-color: #000;
 }
 
-.checkbox__text {
+.radio__text {
     vertical-align: middle;
+}
+
+.radio__text ~ .radio__dot,
+.radio__dot ~ .radio__text {
+    margin-left: 8px;
+}
+
+.switch {
+    user-select: none;
+    vertical-align: middle;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+}
+
+.switch input {
+    position: absolute;
+    z-index: -10;
+    opacity: 0;
+}
+
+.switch__dot {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 48px;
+    height: 24px;
+    border-radius: 100px;
+    background-color: #eee;
+    border: 1px solid #eee;
+    transition: all 150ms ease-in-out 0ms;
+    vertical-align: top;
+    vertical-align: middle;
+}
+
+.switch__dot::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #f8f8f8;
+    transition: all 150ms ease-in-out 0ms;
+}
+
+.switch__text {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.switch__text ~ .switch__dot,
+.switch__dot ~ .switch__text {
+    margin-left: 8px;
+}
+
+.switch input:checked ~ .switch__dot::before {
+    left: 100%;
+    margin-left: -20px;
+    background-color: #f8f8f8;
+}
+
+.switch input[disabled] ~ .switch__dot {
+    opacity: 0.5;
+}
+
+.switch input:checked ~ .switch__dot {
+    background-color: #48c;
+    border-color: #48c;
+}
+
+.switch_danger input:checked ~ .switch__dot {
+    background-color: #e44;
+    border-color: #e44;
 }
 
 .header__top-outer {
@@ -101,7 +207,7 @@ textarea.field_main {
     left: 0;
     right: 0;
     margin: auto;
-    z-index: 5;
+    z-index: 500;
 }
 
 .hamburger {
@@ -460,7 +566,6 @@ a.paginator__text {
     left: 0;
     bottom: 0;
     right: 4px;
-    z-index: 8;
     margin: auto;
     width: 0;
     height: 0;
