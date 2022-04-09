@@ -126,6 +126,8 @@ SidePanel = function(config) {
         closeOutside: true,
         onClose: config.onClose || false,
         blockScroll: config.blockScroll || true,
+        swipeClose: config.swipeClose || true,
+        swipeCloseDistance: config.swipeCloseDistance || 40,
     };
 
     var $panel = document.querySelector(options.panel);
@@ -134,7 +136,9 @@ SidePanel = function(config) {
     var $closings = document.querySelectorAll(options.close);
     var $toggles = document.querySelectorAll(options.toggle);
 
-    var isOpened = false;
+    var isPanelOpened = false;
+
+    var touchStartX = 0;
 
     if ($panel) {
         init();
@@ -162,16 +166,32 @@ SidePanel = function(config) {
 
         document.addEventListener('keydown', onDocumentKeyDown);
         document.addEventListener('click', onDocumentClick);
+
+        if (options.swipeClose) {
+            document.addEventListener('touchstart', function(e) {
+                touchStartX = e.touches[0] ? e.touches[0].clientX : 0;
+            });
+
+            document.addEventListener('touchend', function(e) {
+                if (e.changedTouches[0]) {
+                    if (touchStartX - e.changedTouches[0].clientX > options.swipeCloseDistance) {
+                        if (isPanelOpened) {
+                            closePanel();
+                        }
+                    }
+                }
+            });
+        }
     }
 
     function onDocumentKeyDown(e) {
-        if (isOpened && e.key === 'Escape') {
+        if (isPanelOpened && e.key === 'Escape') {
             closePanel();
         }
     }
 
     function onDocumentClick(e) {
-        if (isOpened && options.closeOutside) {
+        if (isPanelOpened && options.closeOutside) {
             var onPanel = e.target.matches(options.panel) || e.target.closest(options.panel);
             var onOpener = e.target.matches(options.open) || e.target.closest(options.open);
             var onToggler = e.target.matches(options.toggle) || e.target.closest(options.toggle);
@@ -195,7 +215,7 @@ SidePanel = function(config) {
     }
 
     function togglePanel() {
-        if (isOpened) {
+        if (isPanelOpened) {
             closePanel();
         } else {
             openPanel();
@@ -203,7 +223,7 @@ SidePanel = function(config) {
     }
 
     function openPanel() {
-        isOpened = true;
+        isPanelOpened = true;
         $panel.classList.add('is-opened');
 
         if ($overlay) {
@@ -216,7 +236,7 @@ SidePanel = function(config) {
     }
 
     function closePanel() {
-        isOpened = false;
+        isPanelOpened = false;
         $panel.classList.remove('is-opened');
 
         if ($overlay) {
