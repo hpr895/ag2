@@ -1,6 +1,4 @@
-var ag2 = {};
-
-ag2.StickyHeader = function (selector) {
+StickyHeader = function (selector) {
     var $sticky = document.querySelector(selector);
     var $padding = $sticky.parentNode;
 
@@ -39,7 +37,7 @@ ag2.StickyHeader = function (selector) {
     };
 };
 
-ag2.Tabs = function(buttonSelector, contentSelector, config) {
+Tabs = function(buttonSelector, contentSelector, config) {
     config = config || {};
     var options = {
         toggle: config.toggle || false,
@@ -117,7 +115,7 @@ ag2.Tabs = function(buttonSelector, contentSelector, config) {
     };
 }
 
-ag2.SidePanel = function(config) {
+SidePanel = function(config) {
     config = config || {};
     var options = {
         panel: config.panel || '.js-side-panel',
@@ -228,7 +226,7 @@ ag2.SidePanel = function(config) {
 document.addEventListener('DOMContentLoaded', function () {
     // sticky
     (function () {
-        var stickyHeader = new ag2.StickyHeader('.js-sticky-header');
+        var stickyHeader = new StickyHeader('.js-sticky-header');
 
         var stickyEl = new Sticksy('.js-sticky-sidebar', {
             topSpacing: document.querySelector('.js-sticky-header').clientHeight,
@@ -242,11 +240,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // tabs
     (function () {
-        var tabs = new ag2.Tabs('.js-tab-button', '.js-tab-content');
+        var tabs = new Tabs('.js-tab-button', '.js-tab-content');
     })();
 
     // mobile panel
     (function () {
-        var mobilePanel = new ag2.SidePanel();
+        var mobilePanel = new SidePanel();
     })();
 });
