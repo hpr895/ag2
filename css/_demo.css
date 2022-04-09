@@ -83,6 +83,14 @@ textarea.field_main {
     padding: 2px 0;
 }
 
+.header__bottom {
+    display: flex;
+}
+
+.header__hamburger {
+    margin-left: auto;
+}
+
 .header__logo {
     width: 40px;
 }
@@ -98,7 +106,7 @@ textarea.field_main {
 
 .hamburger {
     padding: 8px;
-    width: 44px;
+    width: 40px;
     overflow: hidden;
     cursor: pointer;
 }
@@ -107,7 +115,7 @@ textarea.field_main {
     display: block;
     height: 2px;
     background-color: #000;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .hamburger__line:last-child {
@@ -328,6 +336,10 @@ a.paginator__text {
     display: block;
 }
 
+.is-side-panel-opened {
+    overflow: hidden;
+}
+
 .side-panel {
     position: fixed;
     top: 0;
@@ -374,7 +386,6 @@ a.paginator__text {
     opacity: 1;
 }
 
-
 .mobile-menu {
     margin: 0;
     padding: 0;
@@ -388,6 +399,7 @@ a.paginator__text {
     margin-bottom: -1px;
     border-right: none;
     border-left: none;
+    background-color: #fff;
 }
 
 .mobile-menu a {
@@ -402,20 +414,18 @@ a.paginator__text {
 }
 
 .mobile-menu li > ul {
+    margin: 0;
+    padding: 0;
+    margin-top: -1px;
+    padding-left: 12px;
+    list-style: none;
     overflow: hidden;
     display: none;
-    padding-left: 10px;
-    background-color: #ddd;
-    font-size: 0.9em;
+    background-color: #eee;
 }
 
-.mobile-menu li > ul > li > ul > li > ul {
-    padding-left: 0;
-    font-size: 1em;
-}
-
-.mobile-menu-drop__arrow.is-active:before {
-    transform: rotate(90deg);
+.mobile-menu li.is-opened > ul {
+    display: block;
 }
 
 .mobile-menu-drop {
@@ -460,7 +470,11 @@ a.paginator__text {
     border-width: 1px;
     border-color: #000 #000 transparent transparent;
     transform: rotate(45deg);
-    transition: transform 150ms ease-in-out 0ms;
+}
+
+.mobile-menu-drop__arrow.is-active:before {
+    right: 0;
+    transform: rotate(135deg);
 }
 
 @media only screen and (max-width: 720px) {

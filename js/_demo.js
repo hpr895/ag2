@@ -124,6 +124,8 @@ SidePanel = function(config) {
         close: config.close || '.js-close-side-panel',
         toggle: config.toggle || '.js-toggle-side-panel',
         closeOutside: true,
+        onClose: config.onClose || false,
+        blockScroll: config.blockScroll || true,
     };
 
     var $panel = document.querySelector(options.panel);
@@ -203,16 +205,30 @@ SidePanel = function(config) {
     function openPanel() {
         isOpened = true;
         $panel.classList.add('is-opened');
+
         if ($overlay) {
             $overlay.classList.add('is-active');
+        }
+
+        if (options.blockScroll) {
+            document.documentElement.classList.add('is-side-panel-opened');
         }
     }
 
     function closePanel() {
         isOpened = false;
         $panel.classList.remove('is-opened');
+
         if ($overlay) {
             $overlay.classList.remove('is-active');
+        }
+
+        if (options.onClose) {
+            options.onClose.call(this);
+        }
+
+        if (options.blockScroll) {
+            document.documentElement.classList.remove('is-side-panel-opened');
         }
     }
 
@@ -220,8 +236,64 @@ SidePanel = function(config) {
         togglePanel: togglePanel,
         openPanel: openPanel,
         closePanel: closePanel,
+        options: options,
     };
 }
+
+MobileMenuArrows = function(selector) {
+    var $arrows = document.querySelectorAll(selector);
+
+    init();
+
+    function init() {
+        setEvents();
+    }
+
+    function setEvents() {
+        for (var i = 0; i < $arrows.length; i++) {
+            $arrows[i].removeEventListener('click', onArrowClick);
+            $arrows[i].addEventListener('click', onArrowClick);
+        }
+    }
+
+    function onArrowClick(e) {
+        toggleMenu(e.target);
+    }
+
+    function toggleMenu($arrow) {
+        var $li = $arrow.closest('li');
+
+        if ($li.classList.contains('is-opened')) {
+            closeMenu($arrow);
+        } else {
+            openMenu($arrow);
+        }
+    }
+
+    function openMenu($arrow) {
+        var $li = $arrow.closest('li');
+
+        $arrow.classList.add('is-active');
+        $li.classList.add('is-opened');
+    }
+
+    function closeMenu($arrow) {
+        var $li = $arrow.closest('li');
+
+        $arrow.classList.remove('is-active');
+        $li.classList.remove('is-opened');
+    }
+
+    function closeAll() {
+        for (var i = 0; i < $arrows.length; i++) {
+            closeMenu($arrows[i]);
+        }
+    }
+
+    return {
+        closeAll: closeAll,
+    };
+};
 
 document.addEventListener('DOMContentLoaded', function () {
     // sticky
@@ -246,6 +318,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // mobile panel
     (function () {
         var mobilePanel = new SidePanel();
-        mobilePanel.openPanel();
+        var mobileMenuArrows = new MobileMenuArrows('.js-mobile-menu-arrow');
+
+        mobilePanel.options.onClose = function() {
+            mobileMenuArrows.closeAll();
+        }
     })();
 });
