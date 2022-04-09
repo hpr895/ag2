@@ -333,4 +333,11 @@ document.addEventListener('DOMContentLoaded', function () {
             IMask($phoneInputs[i], { mask: maskFormat, lazy: false});
         }
     })();
+
+    // calendar
+    (function () {
+        var calendar = new AirDatepicker('.js-datepicker', {
+            // locale: AirDatepickerLocale_en,
+        });
+    })();
 });
