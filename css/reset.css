@@ -67,6 +67,7 @@ table {
     cursor: pointer;
     user-select: none;
     background-color: #ccc;
+    text-decoration: none;
 }
 
 .field {

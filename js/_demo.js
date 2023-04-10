@@ -1,4 +1,4 @@
-StickyHeader = function (selector) {
+var StickyHeader = function (selector) {
     var $sticky = document.querySelector(selector);
     var $padding = $sticky.parentNode;
 
@@ -37,7 +37,7 @@ StickyHeader = function (selector) {
     };
 };
 
-Tabs = function(buttonSelector, contentSelector, config) {
+var Tabs = function(buttonSelector, contentSelector, config) {
     config = config || {};
     var options = {
         toggle: config.toggle || false,
@@ -115,7 +115,7 @@ Tabs = function(buttonSelector, contentSelector, config) {
     };
 }
 
-SidePanel = function(config) {
+var SidePanel = function(config) {
     config = config || {};
     var options = {
         panel: config.panel || '.js-side-panel',
@@ -260,7 +260,7 @@ SidePanel = function(config) {
     };
 }
 
-MobileMenuArrows = function(selector) {
+var MobileMenuArrows = function(selector) {
     var $arrows = document.querySelectorAll(selector);
 
     init();
